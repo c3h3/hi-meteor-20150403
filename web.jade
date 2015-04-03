@@ -5,26 +5,10 @@ body
   +test
 
   
-
 template(name="test")
   each rangeArray
-    h2 ({{this}}) Hi Meteor! (h2 tag)
-    p ({{this}}) Hi Meteor! (p tag)
+    +testTemplate
 
-  //- +test1
-  //- +test2
-  //- +test3
-
-template(name="test1")
-  h2 (1) Hi Meteor! (h2 tag)
-  p (1) Hi Meteor! (p tag)
-
-template(name="test2")
-  h2 (2) Hi Meteor! (h2 tag)
-  p (2) Hi Meteor! (p tag)
-
-
-template(name="test3")
-  h2 (3) Hi Meteor! (h2 tag)
-  p (3) Hi Meteor! (p tag)
-  
+template(name="testTemplate")  
+  h2 ({{this}}) Hi Meteor! (h2 tag)
+  p ({{this}}) Hi Meteor! (p tag)
