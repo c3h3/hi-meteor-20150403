@@ -13,24 +13,21 @@ if Meteor.isClient
 
   Template.messages.helpers
     messages: -> 
-      # Session.get "sampleMessages"-
-      Messages.find()
-
+      Messages.find {}, {sort:{createdAt:-1}}
 
   Template.messages.events
-    "change input": (e,t)->
+    "change input.messageInput": (e,t)->
       msg = $(e.target).val()
-      
-      # sampleMessages = Session.get "sampleMessages"
-      
-      # sampleMessages.push 
-      #   text:msg
-      
-      # Session.set "sampleMessages", sampleMessages
+      creator = $("input.authorInput").val()
       
       Messages.insert  
         text:msg
+        creator:creator
+        createdAt: new Date
 
 if Meteor.isServer
   if Messages.find().count() is 0
-    Messages.insert msg for msg in sampleMessages
+    for msg in sampleMessages
+      msg.createdAt = new Date
+      Messages.insert msg 
+

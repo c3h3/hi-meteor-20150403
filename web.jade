@@ -8,11 +8,20 @@ body
 template(name="messages")
   hr
   h2 please input message here:
-  input.messageInput
+  
+  h2 author:
+    input.authorInput
+  h2 message:
+    input.messageInput
+
   each messages
     +oneMessage
     
 template(name="oneMessage")
   hr
-  h2 {{text}}
+  if creator
+    h2 [{{creator}} said:] {{text}}
+  else
+    h2 [anonymous said:] {{text}}
+  p {{createdAt}}
   hr

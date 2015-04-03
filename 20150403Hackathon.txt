@@ -1,0 +1,7 @@
+(1) Setup Environments:
+install Nodejs
+install Mongodb
+install Meteor
+
+(2) Template
+(2.1) variable {{}}
