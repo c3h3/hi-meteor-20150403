@@ -7,8 +7,8 @@ body
   
 template(name="test")
   each rangeArray
-    +testTemplate
+    +testTemplate number=this
 
 template(name="testTemplate")  
-  h2 ({{this}}) Hi Meteor! (h2 tag)
-  p ({{this}}) Hi Meteor! (p tag)
+  h2 ({{number}}) Hi Meteor! (h2 tag)
+  p ({{number}}) Hi Meteor! (p tag)
