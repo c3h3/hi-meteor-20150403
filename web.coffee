@@ -17,13 +17,22 @@ if Meteor.isClient
 
   Template.messages.events
     "change input.messageInput": (e,t)->
+
+      userId = Meteor.userId()
+
       msg = $(e.target).val()
-      creator = $("input.authorInput").val()
+      # creator = $("input.authorInput").val()
       
-      Messages.insert  
+      messages = 
         text:msg
-        creator:creator
+        # creator:creator
         createdAt: new Date
+
+      if userId
+        messages.userId = userId
+
+      Messages.insert messages
+
 
 if Meteor.isServer
   if Messages.find().count() is 0
