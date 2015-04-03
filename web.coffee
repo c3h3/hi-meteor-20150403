@@ -17,22 +17,9 @@ if Meteor.isClient
 
   Template.messages.events
     "change input.messageInput": (e,t)->
-
-      userId = Meteor.userId()
-
       msg = $(e.target).val()
-      # creator = $("input.authorInput").val()
       
-      messages = 
-        text:msg
-        # creator:creator
-        createdAt: new Date
-
-      if userId
-        messages.userId = userId
-
-      Messages.insert messages
-
+      Meteor.call "insertMessge", msg
 
   Template.oneMessage.helpers
     userName: ->
@@ -55,4 +42,22 @@ if Meteor.isServer
     for msg in sampleMessages
       msg.createdAt = new Date
       Messages.insert msg 
+
+
+  Meteor.methods
+    "insertMessge": (msg) ->
+      userId = Meteor.userId()
+
+      
+      # creator = $("input.authorInput").val()
+      
+      messages = 
+        text:msg
+        # creator:creator
+        createdAt: new Date
+
+      if userId
+        messages.userId = userId
+
+      Messages.insert messages
 
