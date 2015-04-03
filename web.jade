@@ -2,49 +2,29 @@ head
   title Hi Meteor! Title!
 
 body
-  hr
   +test
-  hr
+
   
 
 template(name="test")
-  h2 string = {{string}}
-  h2 number = {{number}}
-  h2 rangeArray = {{rangeArray}}
-  h2 date = {{date}}
-  hr 
-  h2 object = {{object}}
-  h2 object.abc = {{object.abc}}
-  h2 object.arr = {{object.arr}}
-  
-  hr 
-
-  h2 arrayOfObject = {{arrayOfObject}}
-  each arrayOfObject
-    h2 {{test}}
-
-
-  hr
-  h2 {{testToString}}
-
-  hr
-
   each rangeArray
-    h3 {{this}}
+    h2 ({{this}}) Hi Meteor! (h2 tag)
+    p ({{this}}) Hi Meteor! (p tag)
+
   //- +test1
   //- +test2
   //- +test3
 
 template(name="test1")
-  h2 {{h2text}}
-  p (1) Hi Meteor!
+  h2 (1) Hi Meteor! (h2 tag)
+  p (1) Hi Meteor! (p tag)
 
 template(name="test2")
-  h2 (2) Hi Meteor!
-  p (2) Hi Meteor!
+  h2 (2) Hi Meteor! (h2 tag)
+  p (2) Hi Meteor! (p tag)
 
 
 template(name="test3")
-  h2 (3) Hi Meteor!
-  p (3) Hi Meteor!
+  h2 (3) Hi Meteor! (h2 tag)
+  p (3) Hi Meteor! (p tag)
   
