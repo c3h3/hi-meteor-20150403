@@ -34,6 +34,22 @@ if Meteor.isClient
       Messages.insert messages
 
 
+  Template.oneMessage.helpers
+    userName: ->
+      
+      if @userId
+        userName = Meteor.users.findOne({_id:@userId}).profile.name
+      else
+        if @creator
+          userName = @creator
+        else
+          userName = "anonymous"
+
+      userName
+
+
+
+
 if Meteor.isServer
   if Messages.find().count() is 0
     for msg in sampleMessages

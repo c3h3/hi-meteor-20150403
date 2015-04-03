@@ -20,12 +20,14 @@ template(name="messages")
     
 template(name="oneMessage")
   hr
-  if userId
-    h2 [{{userId}} said:] {{text}}
-  else
-    if creator
-      h2 [{{creator}} said:] {{text}}
-    else
-      h2 [anonymous said:] {{text}}
+  //- if userId
+  //-   h2 [{{userId}} said:] {{text}}
+  //- else
+  //-   if creator
+  //-     h2 [{{creator}} said:] {{text}}
+  //-   else
+  //-     h2 [anonymous said:] {{text}}
+
+  h2 [{{userName}} said:] {{text}}
   p {{createdAt}}
   hr
