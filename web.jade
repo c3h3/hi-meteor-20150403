@@ -1,14 +1,18 @@
 head
-  title Hi Meteor! Title!
+  title Hi Meteor! Chatroom!
 
 body
-  +test
+  +messages
 
   
-template(name="test")
-  each rangeArray
-    +testTemplate number=this
-
-template(name="testTemplate")  
-  h2 ({{number}}) Hi Meteor! (h2 tag)
-  p ({{number}}) Hi Meteor! (p tag)
+template(name="messages")
+  hr
+  h2 please input message here:
+  input.messageInput
+  each messages
+    +oneMessage
+    
+template(name="oneMessage")
+  hr
+  h2 {{text}}
+  hr
